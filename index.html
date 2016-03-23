@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Food Trends - A Data Visualization Process</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet"> 
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/lightbox.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link id="css-preset" href="css/presets/preset3.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+
+  <!--highchart source start-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <!--highchart source end--> 
+
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+  <![endif]-->
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="images/favicon.ico">
+</head><!--/head-->
+
+<body onload="setViewFunction()">
+
+  <!--.preloader-->
+  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+  <!--/.preloader-->
+
+  <header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url(images/MVI_1762.jpg)">
+          <div class="caption">
+            <h1 class="animated fadeInLeftBig">Welcome to <span>Food Trends</span></h1>
+            <p class="animated fadeInRightBig">A Data Visualization Project by Akshay and Nupur</p>
+            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
+          </div>
+        </div>
+      </div>
+      <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header" style="max-width: 380px;">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <h1><img class="img-responsive" src="images/logo_1.png" alt="logo" style="width: 50%;"></h1>
+          </a>                    
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                 
+            <li class="scroll active"><a href="#home">Home</a></li>   
+            <li class="scroll"><a href="#services">About the Project</a></li>
+            <li class="scroll"><a href="#about-us">Project Design</a></li>                   
+            <li class="scroll"><a href="#portfolio">Project Overview</a></li>
+            <li class="scroll"><a href="#dashboard">Dashboard</a></li>
+            <li class="scroll"><a href="#contact">Contact</a></li>       
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
+    <section id="services">
+    <div class="container">
+      <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="row">
+          <div class="text-center col-sm-8 col-sm-offset-2">
+            <h2>About the Project</h2>
+            <p>Diet, nutrition and expenditure on food are issues of special interest among young adults. Tracking expenditure and food intake is necessary to set health goals and curb expenditure on food that is unnecessary and wasteful. Our project focuses on drawing patterns and finding out trends of eating habits of individuals in the age group of 23-28. This analysis concentrates on two parts: 
+            <p>(1) Eating habits and peculiar patterns of individuals.</p>
+            <p>(2) Expenditure of every individual on different types of food products.</p>
+            <p>We are working on data that we have collected over the period of one year. This data contains information on grocery expenditure of two houses. Interestingly, the two houses are distinct based on gender. One house consists of male members while the other consists of female members. Through this project we also look forward to getting insights into the difference in eating habits of female and male individuals.</p>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </section><!--/#services-->
+    <section id="about-us" class="parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>Project Design</h2>
+            <p>The purpose of this project is to create a visualization report of the expenditure of individuals on types of food items over the course of one year and to study the eating trends of different individuals. This report provides insights into the expenditure of every individual on food items based on pre-defined categories. Our secondary aim is to find distinguished/similar patterns in eating habits between females and males. This will help users compare the eating habits of the two genders and also get insights into differences between their dietary habits.</p>
+            <p> The interactive visual report is divided into three themes and represent three different dashboards as explained ahead</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <p class="lead">Starch</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="21.2">21.2%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
+              <p class="lead">Fruits and Vegetables</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="21.4">21.4%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+              <p class="lead">Bakery and Snacks</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="24.3">24.3%</div>
+              </div>
+            </div>
+            <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <p class="lead">Frozen and Meat</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="14.1">14.1%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#about-us-->
+  <section id="portfolio">
+    <div class="container">
+      <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="row">
+          <div class="text-center col-sm-8 col-sm-offset-2">
+            <h2>Project Overview</h2>
+            <p>This tool visualizes the data that we have collected of two households. This data includes the spending of each individual from the two houses on daily grocery, milk products, bakery items and junk food. The report visually represents the expenditure of each person. This report also enables comparison between the spending of each person. We also have drawn insights on the type of food majorly eaten by each person. </p>
+            <p>We have three themes for our result visualization:</p>
+          </div>
+        </div> 
+      </div>
+      <div class="text-center our-services">
+        <div class="row">
+          <div class="col-sm-4 wow" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="service-icon">
+              <i class="fa fa-dollar"></i>
+            </div>
+            <div class="service-info">
+              <h3>Individual Expense Trends</h3>
+              <p>For expenditure trends we have founnd trends at an individual level based on spending in a group and distribution of spending of a person based on different categories of food</p>
+            </div>
+          </div>
+          <div class="col-sm-4 wow" data-wow-duration="1000ms" data-wow-delay="450ms">
+            <div class="service-icon">
+              <i class="fa fa-male"></i>
+            </div>
+            <div class="service-info">
+              <h3>Expenditure Comparison</h3>
+              <p>On group level, comparison between monthly expenditure of female and male and monthly comparison of expenditure of the male house and female house based on categories of food.</p>
+            </div>
+          </div>
+          <div class="col-sm-4 wow" data-wow-duration="1000ms" data-wow-delay="550ms">
+            <div class="service-icon">
+              <i class="fa fa-bar-chart"></i>
+            </div>
+            <div class="service-info">
+              <h3>Annual Intake Trend</h3>
+              <p>Trends in intake of different kinds of food articles. Understand the difference in the quantity of food consumed by a gender or a person and how it affects the kind of nutrients the person consumes. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--/#portfolio-->
+
+  <section id="features" class="parallax">
+    <div class="container">
+      <div class="row count">
+        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <i class="fa fa-caret-up"></i>
+          <h3 class="timer">825.2</h3>
+          <p>Highest Annual Expense</p>
+        </div>
+        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+          <i class="fa fa-caret-down"></i>
+          <h3 class="timer">525.7</h3>                    
+          <p>Lowest Annual Expense</p>
+        </div> 
+        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="700ms">
+          <i class="fa fa-female"></i>
+          <h3 class="timer">569.9 </h3>                    
+          <p>Average Female Expenditure</p>
+        </div> 
+        <div class="col-sm-3 col-xs-6 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="900ms">
+          <i class="fa fa-male"></i>                    
+          <h3 class="timer">714.3</h3>
+          <p>Average Male Expenditure</p>
+        </div>                 
+      </div>
+    </div>
+  </section><!--/#features-->
+
+  <section id="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms" style='    padding-bottom: 2%;'>
+          <h2>Project Dashboard</h2>
+          <p>Click on a category to view dashboard</p>
+        </div>
+        <div class="col-sm-4" style='text-align: center;'>
+            <a id = "one" onclick="myFunction(this.id);" class="btn btn-lg btn-primary" style='text-align: center;'>Compare Individuals</a>
+        </div>
+        <div class="col-sm-4" style='text-align: center;'>
+        <a id = "two" onclick="myFunction(this.id);" class="btn btn-lg btn-primary" style='text-align: center;'>Compare Houses</a>
+        </div>
+        <div class="col-sm-4" style='text-align: center;'>
+        <a id = "three" onclick="myFunction(this.id);" class="btn btn-lg btn-primary" style='text-align: center;'>Annual Intake</a>
+        </div>
+      </div>
+      <div class="blog-posts" style='padding-top: 2%;'>
+        <div class="row">
+            <div id="title1" style="text-align:center;"><h2>Comparison of Expenditure on Individual level</h2></div>
+            <div id="Dashboard1" class='tableauPlaceholder' style='width: 1064px; height: 669px; margin-left: 3%;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard1-Beta&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1064' height='669' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Dashboard1-Beta&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard1-Beta&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>              
+        </div> 
+        <div class="row">
+            <div id="title2" style="text-align:center;"><h2>Eating habits and expenditure comparison at house level</h2></div>
+            <div id="Dashboard2" class='tableauPlaceholder' style='width: 1004px; height: 669px; margin-left: 5%;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard2-BetaRelease&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='669' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Dashboard2-BetaRelease&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard2-BetaRelease&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>            
+        </div>
+        <div class="row">
+            <div id="title3" style="text-align:center;"><h2>Annual Intake and Expenditure Trends</h2></div>
+            <div id="Dashboard3" class='tableauPlaceholder' style='width: 1004px; height: 719px; margin-left: 7%;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard3-BetaRelease&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1004' height='719' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Dashboard3-BetaRelease&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard3-BetaRelease&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object>
+          </div> 
+          <div id = "HighchartDrilldown" style = "margin-top: 4%">
+            <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          </div>
+          <div id = "HighchartExpense" style = "margin-top: 4%">
+            Following is a visualization created using Highcharts. It shows distribution of expenses for each person categorized by the stores of purchase. Each bar denotes the expenditure of that person at the given store. The spline denotes average spending of the group at the store. The pie chart is a simple representation of the share of each person out of the total annual spending of the group ranging from August 2014 - May 2015.
+            <div id="container1" style="min-width: 310px; height: 400px; margin: 15px auto; margin-left: -3%;"></div>   
+          </div>  
+        </div>            
+      </div>
+    </div>
+  </section><!--/#blog-->
+
+  <section id="contact">
+    <div id="google-map" class="wow fadeIn" data-latitude="38.990930" data-longitude="-76.941577" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+    <div id="contact-us" class="parallax">
+      <div class="container">
+        <div class="row">
+          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <h2>Project Creators</h2>
+          </div>
+        </div>
+            <div class="team-members">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
+              <div class="member-image">
+                <img class="img-responsive" src="images/team/Akshay.JPG" alt="">
+              </div>
+              <div class="member-info">
+                <h3>Akshay Mandke</h3>
+                <h4>Master's Candidate</h4>
+                <h4>College of Information Studies</h4>
+                <h4>University of Maryland, College Park</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+              <div class="member-image">
+                <img class="img-responsive" src="images/team/Nupur.png" alt="">
+              </div>
+              <div class="member-info">
+                <h3>Nupur Kale</h3>
+                <h4>Master's Candidate</h4>
+                <h4>College of Information Studies</h4>
+                <h4>University of Maryland, College Park</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      </div>
+    </div>        
+  </section><!--/#contact-->
+  <footer id="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>&copy; 2014 Oxygen Theme.</p>
+          </div>
+          <div class="col-sm-6">
+            <p class="pull-right">Designed by <a href="http://www.themeum.com/">Themeum</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+        function myFunction(id) {
+            if(id == "one") {
+                document.getElementById('Dashboard1').style.display = "block"; 
+                document.getElementById('Dashboard2').style.display = "none";
+                document.getElementById('Dashboard3').style.display = "none"; 
+                document.getElementById('title1').style.display = "block"; 
+                document.getElementById('title2').style.display = "none";
+                document.getElementById('title3').style.display = "none";
+                document.getElementById('HighchartDrilldown').style.display = "block"; 
+                document.getElementById('HighchartExpense').style.display = "none";
+            }
+            if(id == "two") {
+                document.getElementById('Dashboard1').style.display = "none"; 
+                document.getElementById('Dashboard2').style.display = "block";
+                document.getElementById('Dashboard3').style.display = "none";
+                document.getElementById('title1').style.display = "none"; 
+                document.getElementById('title2').style.display = "block";
+                document.getElementById('title3').style.display = "none";  
+                document.getElementById('HighchartDrilldown').style.display = "none";
+                document.getElementById('HighchartExpense').style.display = "none";
+            }
+            if(id == "three") {
+                document.getElementById('Dashboard1').style.display = "none"; 
+                document.getElementById('Dashboard2').style.display = "none";
+                document.getElementById('Dashboard3').style.display = "block";
+                document.getElementById('title1').style.display = "none"; 
+                document.getElementById('title2').style.display = "none";
+                document.getElementById('title3').style.display = "block";  
+                document.getElementById('HighchartDrilldown').style.display = "none";
+                document.getElementById('HighchartExpense').style.display = "block";
+            }
+        }
+
+        function setViewFunction(){
+            document.getElementById('Dashboard1').style.display = "block"; 
+            document.getElementById('Dashboard2').style.display = "none";
+            document.getElementById('Dashboard3').style.display = "none";
+            document.getElementById('title1').style.display = "block"; 
+            document.getElementById('title2').style.display = "none";
+            document.getElementById('title3').style.display = "none";
+            document.getElementById('HighchartDrilldown').style.display = "block";
+            document.getElementById('HighchartExpense').style.display = "none";  
+        }
+        </script>
+
+        <script type="text/javascript">
+
+       $(function () {
+    $('#container1').highcharts({
+        title: {
+            text: 'Distribution of expenses across stores'
+        },
+        xAxis: {
+            categories: ['Shoppers', 'Farmers', 'Patels', 'Royal Farms', 'Dollar Store']
+        },
+        labels: {
+            items: [{
+                html: 'Total shared cost<br>(Hover on area to see value)',
+                style: {
+                    left: '760px',
+                    top: '5px',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                }
+            }]
+        },
+        series: [{
+            type: 'column',
+            name: 'Akshay',
+            data: [543, 0, 232, 0, 0]
+        }, {
+            type: 'column',
+            name: 'Mohit',
+            data: [484, 0, 247, 0, 0]
+        }, {
+            type: 'column',
+            name: 'Krish',
+            data: [546, 0, 280, 0, 0]
+        }, {
+            type: 'column',
+            name: 'Ketan',
+            data: [324, 0, 202, 0, 0]
+        }, {
+            type: 'column',
+            name: 'Nupur',
+            data: [92, 138, 244, 22, 17]
+        }, {
+            type: 'column',
+            name: 'Sakshi',
+            data: [84, 123, 263, 18, 24]
+        }, {
+            type: 'column',
+            name: 'Namita',
+            data: [132, 121, 228, 19, 29]
+        }, {
+            type: 'column',
+            name: 'Anupama',
+            data: [83, 136, 275, 24, 31]
+        },{
+            type: 'column',
+            name: 'Vanessa',
+            data: [78, 150, 327, 18, 24]
+        },{
+            type: 'spline',
+            name: 'Average',
+            data: [273, 74, 255, 11, 14],
+            marker: {
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[3],
+                fillColor: 'white'
+            }
+        }, {
+            type: 'pie',
+            name: 'Total consumption ($)',
+            data: [{
+                name: 'Akshay',
+                y: 775,
+                color: Highcharts.getOptions().colors[0] // Akshay's color
+            }, {
+                name: 'Mohit',
+                y: 731,
+                color: Highcharts.getOptions().colors[1] // Mohit's color
+            }, {
+                name: 'Krish',
+                y: 825,
+                color: Highcharts.getOptions().colors[2] // Krish's color
+            }, {
+                name: 'Ketan',
+                y: 526,
+                color: Highcharts.getOptions().colors[3] // Ketan's color
+            }, {
+                name: 'Nupur',
+                y: 566,
+                color: Highcharts.getOptions().colors[4] // Nupur's color
+            }, {
+                name: 'Sakshi',
+                y: 551,
+                color: Highcharts.getOptions().colors[5] // Sakshi's color
+            }, {
+                name: 'Namita',
+                y: 549,
+                color: Highcharts.getOptions().colors[6] // Namita's color
+            }, {
+                name: 'Anupama',
+                y: 566,
+                color: Highcharts.getOptions().colors[7] // Anupama's color
+            }, {
+                name: 'Vanessa',
+                y: 619,
+                color: Highcharts.getOptions().colors[8] // Vanessa's color
+            }],
+            center: [950, 80],
+            size: 150,
+            showInLegend: false,
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>',
+            }
+        }]
+    });
+});
+
+$(function () {
+    // Create the chart
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Monthly Expenditure Trends'
+        },
+        subtitle: {
+            text: 'Click the columns to view details.'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: '% of the total shared cost'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '${point.y:.1f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>${point.y:.2f}</b> of total<br/>'
+        },
+
+        series: [{
+            name: 'Members',
+            colorByPoint: true,
+            data: [{
+                name: 'Akshay',
+                y: 774.98,
+                drilldown: 'Akshay'
+            }, {
+                name: 'Mohit',
+                y: 731.29,
+                drilldown: 'Mohit'
+            }, {
+                name: 'Krish',
+                y: 825.22,
+                drilldown: 'Krish'
+            }, {
+                name: 'Ketan',
+                y: 525.68,
+                drilldown: 'Ketan'
+            }, {
+                name: 'Nupur',
+                y: 565.64,
+                drilldown: 'Nupur'
+            }, {
+                name: 'Sakshi',
+                y: 550.9,
+                drilldown: 'Sakshi'
+            }, {
+                name: 'Namita',
+                y: 548.51,
+                drilldown: 'Namita'
+            }, {
+                name: 'Anupama',
+                y: 565.97,
+                drilldown: 'Anupama'
+            }, {
+                name: 'Vanessa',
+                y: 618.52,
+                drilldown: 'Vanessa'
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Akshay',
+                id: 'Akshay',
+                data: [
+                    [
+                        'Aug',
+                        28.95
+                    ],
+                    [
+                        'Sep',
+                        67.75
+                    ],
+                    [
+                        'Oct',
+                        72.23
+                    ],
+                    [
+                        'Nov',
+                        58.65
+                    ],
+                    [
+                        'Dec',
+                        51.74
+                    ],
+                    [
+                        'Jan',
+                        76.64
+                    ],
+                    [
+                        'Feb',
+                        107.54
+                    ],
+                    [
+                        'Mar',
+                        128.97
+                    ],
+                    [
+                        'Apr',
+                        55.65
+                    ],
+                    [
+                        'May',
+                        126.86
+                    ]
+                ]
+            }, {
+                name: 'Mohit',
+                id: 'Mohit',
+                data: [
+                    [
+                        'Aug',
+                        28.95
+                    ],
+                    [
+                        'Sep',
+                        62.91
+                    ],
+                    [
+                        'Oct',
+                        58.63
+                    ],
+                    [
+                        'Nov',
+                        37.39
+                    ],
+                    [
+                        'Dec',
+                        46.71
+                    ],
+                    [
+                        'Jan',
+                        102.97
+                    ],
+                    [
+                        'Feb',
+                        101.55
+                    ],
+                    [
+                        'Mar',
+                        119.57
+                    ],
+                    [
+                        'Apr',
+                        41.86
+                    ],
+                    [
+                        'May',
+                        130.79
+                    ]
+                ]
+            }, {
+                name: 'Krish',
+                id: 'Krish',
+                data: [
+                    [
+                        'Aug',
+                        33.94
+                    ],
+                    [
+                        'Sep',
+                        66.16
+                    ],
+                    [
+                        'Oct',
+                        70.38
+                    ],
+                    [
+                        'Nov',
+                        55.48
+                    ],
+                    [
+                        'Dec',
+                        59.7
+                    ],
+                    [
+                        'Jan',
+                        97.63
+                    ],
+                    [
+                        'Feb',
+                        106.1
+                    ],
+                    [
+                        'Mar',
+                        133.57
+                    ],
+                    [
+                        'Apr',
+                        58.48
+                    ],
+                    [
+                        'May',
+                        143.78
+                    ]
+                ]
+            }, {
+                name: 'Ketan',
+                id: 'Ketan',
+                data: [
+                    [
+                        'Aug',
+                        27.3
+                    ],
+                    [
+                        'Sep',
+                        40.57
+                    ],
+                    [
+                        'Oct',
+                        38.53
+                    ],
+                    [
+                        'Nov',
+                        27.82
+                    ],
+                    [
+                        'Dec',
+                        28.78
+                    ],
+                    [
+                        'Jan',
+                        86.94
+                    ],
+                    [
+                        'Feb',
+                        77.33
+                    ],
+                    [
+                        'Mar',
+                        81.51
+                    ],
+                    [
+                        'Apr',
+                        27.82
+                    ],
+                    [
+                        'May',
+                        89.08
+                    ]
+                ]
+            }, {
+                name: 'Nupur',
+                id: 'Nupur',
+                data: [
+                    [
+                        'Aug',
+                        30.76
+                    ],
+                    [
+                        'Sep',
+                        46.21
+                    ],
+                    [
+                        'Oct',
+                        86.3
+                    ],
+                    [
+                        'Nov',
+                        66.73
+                    ],
+                    [
+                        'Dec',
+                        58.64
+                    ],
+                    [
+                        'Jan',
+                        45.94
+                    ],
+                    [
+                        'Feb',
+                        75.49
+                    ],
+                    [
+                        'Mar',
+                        37.17
+                    ],
+                    [
+                        'Apr',
+                        100.35
+                    ],
+                    [
+                        'May',
+                        16.71
+                    ]
+                ]
+            }, {
+                name: 'Sakshi',
+                id: 'Sakshi',
+                data: [
+                    [
+                        'Aug',
+                        23.61
+                    ],
+                    [
+                        'Sep',
+                        34.24
+                    ],
+                    [
+                        'Oct',
+                        74.58
+                    ],
+                    [
+                        'Nov',
+                        58.23
+                    ],
+                    [
+                        'Dec',
+                        32.23
+                    ],
+                    [
+                        'Jan',
+                        45.91
+                    ],
+                    [
+                        'Feb',
+                        88.3
+                    ],
+                    [
+                        'Mar',
+                        48.04
+                    ],
+                    [
+                        'Apr',
+                        106.44
+                    ],
+                    [
+                        'May',
+                        37.98
+                    ]
+                ]
+            }, {
+                name: 'Namita',
+                id: 'Namita',
+                data: [
+                    [
+                        'Aug',
+                        29.05
+                    ],
+                    [
+                        'Sep',
+                        42.98
+                    ],
+                    [
+                        'Oct',
+                        91.14
+                    ],
+                    [
+                        'Nov',
+                        62.69
+                    ],
+                    [
+                        'Dec',
+                        35.1
+                    ],
+                    [
+                        'Jan',
+                        60.1
+                    ],
+                    [
+                        'Feb',
+                        86.27
+                    ],
+                    [
+                        'Mar',
+                        22.89
+                    ],
+                    [
+                        'Apr',
+                        94.38
+                    ],
+                    [
+                        'May',
+                        22.58
+                    ]
+                ]
+            }, {
+                name: 'Anupama',
+                id: 'Anupama',
+                data: [
+                    [
+                        'Aug',
+                        28.05
+                    ],
+                    [
+                        'Sep',
+                        46.98
+                    ],
+                    [
+                        'Oct',
+                        69.69
+                    ],
+                    [
+                        'Nov',
+                        68.42
+                    ],
+                    [
+                        'Dec',
+                        50.04
+                    ],
+                    [
+                        'Jan',
+                        44.43
+                    ],
+                    [
+                        'Feb',
+                        81.31
+                    ],
+                    [
+                        'Mar',
+                        44.55
+                    ],
+                    [
+                        'Apr',
+                        92.89
+                    ],
+                    [
+                        'May',
+                        37.91
+                    ]
+                ]
+            }, {
+                name: 'Vanessa',
+                id: 'Vanessa',
+                data: [
+                    [
+                        'Aug',
+                        29.02
+                    ],
+                    [
+                        'Sep',
+                        42.75
+                    ],
+                    [
+                        'Oct',
+                        92.35
+                    ],
+                    [
+                        'Nov',
+                        65.37
+                    ],
+                    [
+                        'Dec',
+                        34.32
+                    ],
+                    [
+                        'Jan',
+                        64.75
+                    ],
+                    [
+                        'Feb',
+                        96.98
+                    ],
+                    [
+                        'Mar',
+                        41.93
+                    ],
+                    [
+                        'Apr',
+                        116.04
+                    ],
+                    [
+                        'May',
+                        33.67
+                    ]
+                ]
+            }]
+        }
+    });
+});
+    </script>
+
+
+  <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/mousescroll.js"></script>
+  <script type="text/javascript" src="js/smoothscroll.js"></script>
+  <script type="text/javascript" src="js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
